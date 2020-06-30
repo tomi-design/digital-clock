@@ -101,10 +101,11 @@ if (isPartyTime === false) {
 
 button.addEventListener('click', partyEvent);
 
+*/
 
 let wakeUpTimeSelector= document.getElementById('wakeUpTimeSelector');
 let lunchTimeSelector= document.getElementById('lunchTimeSelector');
-let napTimeSelector= document.getElementById('napTimeSelector');
+let studyTimeSelector= document.getElementById('studyTimeSelector');
 
 let wakeUp= function() {
     wakeupTime=wakeUpTimeSelector.value;
@@ -113,12 +114,11 @@ let lunch= function() {
     lunchTime=lunchTimeSelector.value;
 }
 
-let nap= function() {
-    napTime=napTimeSelector.value;
+let study= function() {
+    studyTime=studyTimeSelector.value;
 };
 
 wakeUpTimeSelector.addEventListener('change', wakeUp);
 lunchTimeSelector.addEventListener('change', lunch);
-napTimeSelector.addEventListener('change', nap);
+studyTimeSelector.addEventListener('change', study);
 
-*/
