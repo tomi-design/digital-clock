@@ -1,10 +1,10 @@
 let noon = 12;
 let evening = 18; // 6PM
-let wakeupTime = 9; // 9AM
+let wakeUpTime = 9; // 9AM
 let lunchTime = 12; // 12PM
 let studyTime = 17; // 5PM
-
 let time= new Date().getHours();
+
 
 
 
@@ -12,19 +12,20 @@ let updateClock=function() {
 let activityImage= document.getElementById('icon');
 let blockQuote= document.getElementById('timeOfDay');
 let messageText;
-let image= 'img/heart.png';
+let image;
 
-if (time == studyTime){
-	image= 'img/pencil.png';
-    messageText = "Time to hit the books!";
 
-} else if (time == lunchTime) {
+if (time === wakeUpTime){
+	image= 'img/sun.png';
+    messageText = "Rise and shine!";
+
+} else if (time === lunchTime) {
 	image= 'img/pizza.png';
     messageText = "You need some fuel!";
 
-} else if (time == wakeupTime) {
-	image= 'img/sun.png';
-    messageText = "Rise and shine!";	
+} else if (time === studyTime) {
+	image= 'img/pencil.png';
+    messageText = "Time to hit the books!";	
 	
 } else if (time > evening) {
 	image= 'img/moon.png';
@@ -32,16 +33,20 @@ if (time == studyTime){
     let color="#00334d";	
     document.body.style.backgroundColor=color;    
     document.getElementById("title").style.color="white";
-    document.getElementById("myName").style.color="white";	
-} else {
+    document.getElementById("myName").style.color="white";
+
+} else if (time < noon) {
 	image='img/sun.png';
     messageText = "Good morning!";
+
+} else {
+  image= 'img/heart.png';
+  messageText= "You are awesome!";
 }
 
 blockQuote.innerText= messageText;
 activityImage.src= image;
-
-}
+};
 
 
 let showCurrentTime= function() {
@@ -70,7 +75,6 @@ let showCurrentTime= function() {
     }
   let clockTime= hours + ':' +  minutes + ':' + seconds + '   ' + meridian;
   clock.innerText= clockTime;
- 
 };
 
 showCurrentTime();
@@ -81,39 +85,17 @@ setInterval(showCurrentTime, oneSecond); //this will sent the interval in any of
 updateClock(); // now i'm calling the updateclock function
 
 
-/*
-let button= document.getElementById('partyTimeButton');
-let isPartyTime= false;
-
-let partyEvent= function(){
-if (isPartyTime === false) {
-    isPartyTime = true;
-    time=partyTime;
-    button.innerText='Party Over';
-    button.style.backgroundColor='#222';
-} else {
-    isPartyTime= false;
-    time=new Date().getHours();
-    button.innerText='Party Time!';
-    button.style.backgroundColor= 'pink';
-}
-};
-
-button.addEventListener('click', partyEvent);
-
-*/
 
 let wakeUpTimeSelector= document.getElementById('wakeUpTimeSelector');
 let lunchTimeSelector= document.getElementById('lunchTimeSelector');
 let studyTimeSelector= document.getElementById('studyTimeSelector');
 
 let wakeUp= function() {
-    wakeupTime=wakeUpTimeSelector.value;
-}
+    wakeUpTime=wakeUpTimeSelector.value;
+};
 let lunch= function() {
     lunchTime=lunchTimeSelector.value;
-}
-
+};
 let study= function() {
     studyTime=studyTimeSelector.value;
 };
@@ -121,4 +103,3 @@ let study= function() {
 wakeUpTimeSelector.addEventListener('change', wakeUp);
 lunchTimeSelector.addEventListener('change', lunch);
 studyTimeSelector.addEventListener('change', study);
-

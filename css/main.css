@@ -181,7 +181,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 150px;
 }
 
 .selector-wrapper p {
@@ -220,6 +220,8 @@ select {
 
 option {
   font-size: 20px;
+  font-family: 'Comfortaa', cursive;
+
 }
 
 footer {
@@ -233,6 +235,11 @@ footer p {
   font-family: 'Comfortaa', cursive;
   font-size: 40px;
 }
+
+select:not(:-internal-list-box) {
+  overflow: visible !important;
+}
+
 
 /* ==========================================================================
    Helper classes
